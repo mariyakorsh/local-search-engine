@@ -1,5 +1,5 @@
 <div id="header">
-  <div class="logo"><span>LS</span></div>
+  <a routerLink="/" routerLinkActive="active" class="logo"><span>LS</span></a>
   <div class="search-bar">
     <div class="input-group">
     <span id="city_box">
@@ -25,5 +25,10 @@
       </div>
     </div>
   </div>
+  <div class="registration">
+    <span *ngIf="currentUser">{{currentUser.username}}</span>
+    <a *ngIf="!currentUser" class="material-icons" (click)="Registration()">&#xE890;</a>
+  </div>
 </div>
+
 

@@ -1,0 +1,48 @@
+<form>
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+        <div class="group">
+          <input class="user" type="text" class="input" placeholder="Username" name="username" [(ngModel)]="username">
+        </div>
+        <div class="group">
+          <input class="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        </div>
+        <div class="group">
+          <input id="check" type="checkbox" class="check" checked>
+          <label for="check"><span class="icon"></span> Keep me Signed in</label>
+        </div>
+        <div class="group">
+          <input type="button" class="button" value="Sign In" (click)="SignIn()">
+        </div>
+        <div class="foot-lnk">
+          <a href="#forgot">Forgot Password?</a>
+        </div>
+      </div>
+      <div class="sign-up-htm">
+        <div class="group">
+          <input id="user" type="text" class="input" placeholder="Username" name="username" [(ngModel)]="username">
+        </div>
+        <div class="group">
+          <input class="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+        </div>
+        <div class="group">
+          <input class="pass" type="password" class="input" data-type="password" placeholder="Repeat Password" name="repeatPassword" [(ngModel)]="repeatPassword">
+        </div>
+        <div class="group">
+          <input id="pass" type="text" class="input" placeholder="Email Address" name="email" [(ngModel)]="email">
+        </div>
+        <div class="group">
+          <input type="button" class="button" value="Sign Up" (click)="SignUp()">
+        </div>
+        <div class="foot-lnk">
+          <a for="tab-1">Already Member?</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</form>

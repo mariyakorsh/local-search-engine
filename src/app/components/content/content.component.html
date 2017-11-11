@@ -1,0 +1,16 @@
+<div class="wrapper">
+  <div class="slideshow-container">
+    <div class="mySlides">
+      <img class="fade" [src]='imageArray[currentImage].url' style="max-width: 100%; max-height: 100%">
+      <div class="text">{{imageArray[currentImage].text}}</div>
+      <div class="control">
+        <span class="dot" (click)="Prev(1)"></span>
+        <span class="dot" (click)="Prev(2)"></span>
+        <span class="dot" (click)="Prev(3)"></span>
+      </div>
+    </div>
+    <a class="prev material-icons" (click)="Prev()">&#xE408;</a>
+    <a class="next material-icons" (click)="Next()">&#xE409;</a>
+  </div>
+  <hot-keys></hot-keys>
+</div>
