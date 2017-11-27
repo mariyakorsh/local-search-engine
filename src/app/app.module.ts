@@ -1,15 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { routing } from './app.routing';
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { MasonryModule } from "angular2-masonry";
 
 import { AppComponent } from './app.component';
 import {HeaderComponent } from "./components/header/header.component";
 import {ContentComponent} from "./components/content/content.component";
 import {HotKeysComponent} from "./components/hot-keys/hot-keys.component";
-import {RegistrationComponent} from "./components/Registration/registration.component";
+import {RegistrationComponent} from "./components/registration/registration.component";
 import {UserService} from "./services/user.service";
+import { ProfileComponent } from './components/profile/profile.component';
+import { PlaceListComponent } from './components/place-list/place-list.component';
+import { PlaceComponent } from './components/place/place.component';
 
 
 @NgModule({
@@ -18,16 +21,20 @@ import {UserService} from "./services/user.service";
     HeaderComponent,
     ContentComponent,
     HotKeysComponent,
-    RegistrationComponent
+    RegistrationComponent,
+    ProfileComponent,
+    PlaceListComponent,
+    PlaceComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
+    MasonryModule,
     routing,
-    MasonryModule
     ],
   providers: [UserService],
   bootstrap: [AppComponent],
-  exports: [RegistrationComponent]
+  exports: [RegistrationComponent, PlaceComponent]
 })
 export class AppModule { }

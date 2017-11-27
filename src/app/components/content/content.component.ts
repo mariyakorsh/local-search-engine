@@ -28,5 +28,4 @@ export class ContentComponent {
       this.currentImage = this.currentImage + 1;
     }
   }
-
   }

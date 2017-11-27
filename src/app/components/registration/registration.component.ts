@@ -24,12 +24,12 @@ export class RegistrationComponent {
     let user = new User(this.username, this.password, this.email);
     this.userService.addUser(user);
     this.userService.getUserByUserName(user.username);
-    this.router.navigateByUrl("");
+    window.location.assign( "");
   }
   SignIn():void{
     let currentUser = this.userService.getUserByUserName(this.username);
     if(currentUser){
-      this.router.navigateByUrl("");
+      window.location.assign( "");
     }else {
       alert("User doesn't exist in the system");
     }

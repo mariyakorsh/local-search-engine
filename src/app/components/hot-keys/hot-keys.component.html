@@ -1,10 +1,10 @@
 <masonry>
     <masonry-brick class="col" ontouchstart="this.classList.toggle('hover');" *ngFor="let item of HotKeyArray">
-      <div class="container">
+      <div class="container" [routerLink]="['places', item.text]" >
         <div class="front" [ngStyle]="{'background-image': 'url(' + item.url + ')'}">
           <div class="inner">
             <p>{{item.text}}</p>
-            <span>Lorem ipsum</span>
+
           </div>
         </div>
         <div class="back">

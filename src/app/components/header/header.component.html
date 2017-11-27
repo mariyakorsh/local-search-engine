@@ -27,6 +27,7 @@
   </div>
   <div class="registration">
     <span *ngIf="currentUser">{{currentUser.username}}</span>
+    <a *ngIf="currentUser" class="material-icons" (click)="LogOut()">&#xE890;</a>
     <a *ngIf="!currentUser" class="material-icons" (click)="Registration()">&#xE890;</a>
   </div>
 </div>

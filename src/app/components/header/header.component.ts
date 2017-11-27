@@ -17,9 +17,13 @@ export class HeaderComponent{
   constructor(router: Router, userService: UserService){
      this.router = router;
      this.userService = userService;
-     this.userService.getCurrentUser().subscribe(user => this.currentUser = user);
+   this.currentUser = this.userService.getUserByUserName("currentUser");
   }
-   Registration(){
+   Registration(): void {
     this.router.navigateByUrl('/registration');
+  }
+  LogOut(): void {
+     this.userService.logOut();
+     this.currentUser = null;
   }
 }
