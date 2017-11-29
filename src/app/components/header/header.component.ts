@@ -26,4 +26,7 @@ export class HeaderComponent{
      this.userService.logOut();
      this.currentUser = null;
   }
+  Profile(){
+    this.router.navigateByUrl('/profile');
+  }
 }

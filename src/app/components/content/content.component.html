@@ -1,6 +1,6 @@
 <div class="wrapper">
   <div class="slideshow-container">
-      <img class="fade" [src]='imageArray[currentImage].url' style="max-width: 100%; max-height: 100%">
+      <img class="fade" [src]='imageArray[currentImage].url' [routerLink]="['places', imageArray[currentImage].text]" style="max-width: 100%; max-height: 100%">
       <div class="text">{{imageArray[currentImage].text}}</div>
       <div class="control">
         <span class="dot"></span>

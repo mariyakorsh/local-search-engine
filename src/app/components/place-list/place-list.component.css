@@ -1,0 +1,15 @@
+:host{
+  display: flex;
+}
+.places{
+  margin: 10px;
+  overflow: scroll;
+  height: 550px;
+  width: 300px;
+}
+.place{
+  border: solid 1px grey;
+  margin: 5px;
+  padding: 10px;
+
+}

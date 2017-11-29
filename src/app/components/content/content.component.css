@@ -20,7 +20,9 @@
   transition: 0.6s ease;
   border-radius: 50%;
 }
-
+.prev{
+  left: 0px;
+}
 .next{
   left: 550px;
   border-radius: 50%;

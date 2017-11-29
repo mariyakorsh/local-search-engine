@@ -13,6 +13,8 @@ import {UserService} from "./services/user.service";
 import { ProfileComponent } from './components/profile/profile.component';
 import { PlaceListComponent } from './components/place-list/place-list.component';
 import { PlaceComponent } from './components/place/place.component';
+import { HttpClientModule } from "@angular/common/http";
+import {PlacesService} from "./services/places.service";
 
 
 @NgModule({
@@ -31,9 +33,10 @@ import { PlaceComponent } from './components/place/place.component';
     FormsModule,
     ReactiveFormsModule,
     MasonryModule,
+    HttpClientModule,
     routing,
     ],
-  providers: [UserService],
+  providers: [UserService, PlacesService],
   bootstrap: [AppComponent],
   exports: [RegistrationComponent, PlaceComponent]
 })
