@@ -3,7 +3,7 @@
   <div  class="place" *ngFor="let pl of this.places">
     <h3>{{pl.name}}</h3>
     <p>{{pl.address}}</p>
-    <p>{{pl.Hours.text}}</p>
+    <p>{{pl?.Hours?.text}}</p>
     <p *ngFor="let phone of pl.Phones">{{phone.formatted}}, {{phone.info}}</p>
   </div>
   </div>

@@ -11,7 +11,4 @@ export class ProfileComponent {
 
   constructor(public router: Router) { }
 
-  Save() {
-
-  }
 }

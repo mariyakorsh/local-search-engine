@@ -54,14 +54,14 @@ export class PlaceListComponent implements OnInit {
               preset: 'islands#circleDotIcon',
             }));
         });
-        localStorage.setItem('hotels', JSON.stringify(value.features));
+        localStorage.setItem('places', JSON.stringify(value.features));
       }, error => {
         console.log(error);
       });
       const map = new ymaps.Map(this.el.nativeElement, this.options);
     });
 
-    this.places = JSON.parse(localStorage.getItem('hotels')).map(item => {
+    this.places = JSON.parse(localStorage.getItem('places')).map(item => {
       return item.properties.CompanyMetaData;
     });
     console.log(this.places);
