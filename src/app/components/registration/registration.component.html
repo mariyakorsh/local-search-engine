@@ -1,4 +1,4 @@
-<form novalidate>
+<form novalidate #form="ngForm">
 <div class="login-wrap">
   <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
@@ -6,13 +6,13 @@
     <div class="login-form">
       <div class="sign-in-htm">
         <div class="group">
-          <input  type="text" class="input" placeholder="Username" name="username" required minlength="5" #myName="ngModel" [(ngModel)]="username" ngModel>
+          <input  type="text" class="input" placeholder="Username" name="username" required minlength="3" #myName="ngModel" [(ngModel)]="username" ngModel>
         </div>
         <div class="group">
-          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" minlength="6" required [(ngModel)]="password">
         </div>
         <div class="group">
-          <input type="button" class="button" value="Sign In" (click)="SignIn()">
+          <input [disabled]="!form.valid" type="button" class="button" value="Sign In" (click)="SignIn()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
         </div>
       </div>
       <div class="sign-up-htm">
@@ -30,7 +30,7 @@
           <input id="pass" type="text" class="input" placeholder="Email Address" name="email" [(ngModel)]="email">
         </div>
         <div class="group">
-          <input type="button" class="button" value="Sign Up" (click)="SignUp()">
+          <input type="button" class="button" value="Sign Up" (click)="SignUp()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
         </div>
       </div>
     </div>
