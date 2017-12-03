@@ -4,11 +4,11 @@
     <div class="input-group">
     <span id="city_box">
       <i class="material-icons">&#xE0C8;</i>
-      <input class="us-city" autocomplete="OFF" placeholder="Saint-Petersburg" type="text">
+      <input #city (keyup)="Search(city.value)" class="us-city" autocomplete="OFF" placeholder="Введите город" type="text">
     </span>
       <div class="auto-comp">
-        <input class="form-control" placeholder="What? e.g Restaurants,Movies" type="text">
-        <button type="button"><i class="material-icons">&#xE8B6;</i></button>
+        <input [(ngModel)]="value" class="form-control" placeholder="Что искать?(ресторан, кинотеатр)" type="text">
+        <button type="button" [routerLink]="['places', value]"><i class="material-icons">&#xE8B6;</i></button>
       </div>
     </div>
   </div>

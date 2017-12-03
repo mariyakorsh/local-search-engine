@@ -149,3 +149,12 @@ a{color:inherit;text-decoration:none}
   color: grey;
   text-align:center;
 }
+input{
+  outline: none;
+}
+
+.input.ng-invalid.ng-dirty {border: solid red 1px !important}
+.input.ng-valid.ng-dirty {border: solid green 1px !important}
+
+.test .ng-invalid {border: solid red 2px}
+.test .ng-valid  {border: solid green 2px}

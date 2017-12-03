@@ -8,7 +8,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent {
-
+  current = JSON.parse(localStorage.getItem('currentUser'));
   constructor(public router: Router) { }
 
 }

@@ -1,4 +1,4 @@
-<form>
+<form novalidate>
 <div class="login-wrap">
   <div class="login-html">
     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
@@ -6,10 +6,10 @@
     <div class="login-form">
       <div class="sign-in-htm">
         <div class="group">
-          <input class="user" type="text" class="input" placeholder="Username" name="username" [(ngModel)]="username">
+          <input  type="text" class="input" placeholder="Username" name="username" required minlength="5" #myName="ngModel" [(ngModel)]="username" ngModel>
         </div>
         <div class="group">
-          <input class="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
         </div>
         <div class="group">
           <input type="button" class="button" value="Sign In" (click)="SignIn()">
@@ -20,10 +20,11 @@
           <input id="user" type="text" class="input" placeholder="Username" name="username" [(ngModel)]="username">
         </div>
         <div class="group">
-          <input class="pass" type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" [(ngModel)]="password">
+
         </div>
         <div class="group">
-          <input class="pass" type="password" class="input" data-type="password" placeholder="Repeat Password" name="repeatPassword" [(ngModel)]="repeatPassword">
+          <input  type="password" class="input" data-type="password" placeholder="Repeat Password" name="repeatPassword" [(ngModel)]="repeatPassword">
         </div>
         <div class="group">
           <input id="pass" type="text" class="input" placeholder="Email Address" name="email" [(ngModel)]="email">
