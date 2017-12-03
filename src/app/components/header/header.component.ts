@@ -20,7 +20,7 @@ export class HeaderComponent{
   constructor(router: Router, userService: UserService, public placesService: PlacesService){
      this.router = router;
      this.userService = userService;
-   this.currentUser = this.userService.getUserByUserName("currentUser");
+   this.currentUser = this.userService.getCurrentUser();
   }
    Registration(): void {
     this.router.navigateByUrl('/registration');

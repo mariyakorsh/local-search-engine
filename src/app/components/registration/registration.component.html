@@ -6,21 +6,26 @@
     <div class="login-form">
       <div class="sign-in-htm">
         <div class="group">
-          <input  type="text" class="input" placeholder="Username" name="username" required minlength="3" #myName="ngModel" [(ngModel)]="username" ngModel>
+          <input  type="text" class="input" placeholder="Username" name="username"
+                  required minlength="3" #myName="ngModel" [(ngModel)]="username" ngModel>
         </div>
         <div class="group">
-          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" minlength="6" required [(ngModel)]="password">
+          <input  type="password" class="input" data-type="password" placeholder="Password"
+                  name="password" minlength="6" required [(ngModel)]="password">
         </div>
         <div class="group">
-          <input [disabled]="!form.valid" type="button" class="button" value="Sign In" (click)="SignIn()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
+          <input [disabled]="!form.valid" type="button" class="button" value="Sign In"
+                 (click)="SignIn()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
         </div>
       </div>
       <div class="sign-up-htm">
         <div class="group">
-          <input id="user" type="text" class="input" placeholder="Username" name="username" required minlength="3" [(ngModel)]="username">
+          <input id="user" type="text" class="input" placeholder="Username" name="username"
+                 required minlength="3" [(ngModel)]="username">
         </div>
         <div class="group">
-          <input  type="password" class="input" data-type="password" placeholder="Password" name="password" #pass required minlength="6" [(ngModel)]="password">
+          <input  type="password" class="input" data-type="password" placeholder="Password"
+                  name="password" #pass required minlength="6" [(ngModel)]="password">
 
         </div>
         <div class="group">
@@ -31,10 +36,12 @@
                               'ng-invalid': pass.value != repeatPass.value }" >
         </div>
         <div class="group">
-          <input id="pass" type="email" class="input" placeholder="Email Address" required email name="email" [(ngModel)]="email" ngModel/>
+          <input id="pass" type="email" class="input" placeholder="Email Address"
+                 required email name="email" [(ngModel)]="email" ngModel/>
         </div>
         <div class="group">
-          <input type="button" class="button" value="Sign Up" (click)="SignUp()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
+          <input type="button" class="button" value="Sign Up" (click)="SignUp()"
+                 [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
         </div>
       </div>
     </div>

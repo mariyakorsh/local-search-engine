@@ -23,11 +23,12 @@ export class RegistrationComponent {
   SignUp():void{
     let user = new User(this.username, this.password, this.email);
     this.userService.addUser(user);
-    this.userService.getUserByUserName(user.username);
+    this.userService.setCurrentUser(user);
     window.location.assign( "");
   }
   SignIn():void{
     let currentUser = this.userService.getUserByUserName(this.username);
+    this.userService.setCurrentUser(currentUser);
     if(currentUser){
       window.location.assign( "");
     }else {
