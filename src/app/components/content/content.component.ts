@@ -8,9 +8,9 @@ import { Image } from "../../models/image";
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent {
-  imageArray: Image[] = [new Image('../../assets/movies.png','Кинотеатры'),
-     new Image('../../assets/restoran.jpg','Рестораны'),
-    new Image('../../assets/hotel.jpg','Отели')];
+  imageArray: Image[] = [new Image('../../assets/movies.png','Кинотеатры', ''),
+     new Image('../../assets/restoran.jpg','Рестораны', ''),
+    new Image('../../assets/hotel.jpg','Отели', '')];
   currentImage: number = 0;
   Prev(){
     if(this.currentImage==0){

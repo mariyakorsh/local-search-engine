@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PlacesService} from "../../services/places.service";
+import {Phone, Place} from "../../models/place";
 
 declare var ymaps: any;
 
@@ -26,9 +27,8 @@ interface MapsEventListener {
 })
 export class PlaceListComponent implements OnInit {
   private place: string;
-  public places: any[];
+  public places: Place[];
 
-  private _mapResolver: (value?: YandexMap) => void;
   options: any = {
     center: [59.9386300, 30.3141300],
     zoom: 10,
@@ -37,7 +37,7 @@ export class PlaceListComponent implements OnInit {
   };
   @ViewChild('yamaps') el: ElementRef;
 
-  constructor(public activatedRout: ActivatedRoute, public placesService: PlacesService) {
+  constructor( public activatedRout: ActivatedRoute, public placesService: PlacesService) {
   }
 
   ngOnInit() {
@@ -60,11 +60,14 @@ export class PlaceListComponent implements OnInit {
       });
       const map = new ymaps.Map(this.el.nativeElement, this.options);
     });
-
-    this.places = JSON.parse(localStorage.getItem('places')).map(item => {
-      return item.properties.CompanyMetaData;
+    this.places = JSON.parse(localStorage.getItem('places')).map( item => {
+      return  new Place(
+        item.properties.CompanyMetaData.name,
+        item.properties.CompanyMetaData.address,
+        item.properties.CompanyMetaData.Hours,
+        <Phone[]> item.properties.CompanyMetaData.Phones
+      )
     });
-    console.log(this.places);
   }
 
 }

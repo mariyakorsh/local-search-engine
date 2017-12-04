@@ -1,17 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from "@angular/router";
+import { Component } from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-place',
   templateUrl: './place.component.html',
   styleUrls: ['./place.component.css']
 })
-export class PlaceComponent implements OnInit {
-
-  constructor(public router: Router) {
+export class PlaceComponent {
+  name: string;
+  constructor( public activetedRoute: ActivatedRoute) {
+    activetedRoute.params.subscribe(param =>this.name = param['name'])
   }
-
-  ngOnInit() {
-  }
-
 }

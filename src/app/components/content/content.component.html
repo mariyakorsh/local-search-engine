@@ -1,12 +1,8 @@
 <div class="wrapper">
   <div class="slideshow-container">
-      <img class="fade" [src]='imageArray[currentImage].url' [routerLink]="['places', imageArray[currentImage].text]" style="max-width: 100%; max-height: 100%">
-      <div class="text">{{imageArray[currentImage].text}}</div>
-      <div class="control">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div>
+    <img class="fade" [src]='imageArray[currentImage].url' [routerLink]="['places', imageArray[currentImage].text]" routerLinkActive="active"
+         style="max-width: 100%; max-height: 100%">
+    <div class="text">{{imageArray[currentImage].text}}</div>
     <a class="prev material-icons" (click)="Prev()">&#xE408;</a>
     <a class="next material-icons" (click)="Next()">&#xE409;</a>
   </div>

@@ -10,9 +10,9 @@ const appRoutes: Routes = [
   {path: "", component: ContentComponent},
   {path: "registration", component: RegistrationComponent},
   {path: "places/:place", component: PlaceListComponent},
-  {path: "place", component: PlaceComponent},
+  {path: "place/:name", component: PlaceComponent},
   {path: "profile", component: ProfileComponent},
   {path: "**", redirectTo: ""}
 ];
-export const routing = RouterModule.forRoot(appRoutes);
+export const routing = RouterModule.forRoot(appRoutes, {enableTracing: true});
 
