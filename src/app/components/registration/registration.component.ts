@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 
 import { User } from "../../models/user";
 import { UserService } from "../../services/user.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: "reg",

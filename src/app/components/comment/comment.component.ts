@@ -24,7 +24,7 @@ export class CommentComponent implements OnInit{
     this.currentUser = userService.getCurrentUser();
   }
   AddComment(): void{
-    this.comments.push(new Comment(this.currentUser.username, new Date(), this.text));
+    this.comments.unshift(new Comment(this.currentUser.username, new Date(), this.text));
     localStorage.setItem(this.placeName, JSON.stringify(this.comments));
     this.text = '';
   }

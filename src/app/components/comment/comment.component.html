@@ -3,6 +3,7 @@
     <textarea placeholder="Оставьте отзыв" #value="ngModel" [(ngModel)]="text"></textarea>
   <input type="submit" value="Add" [disabled]="text == ''" [ngStyle]="{'background': text  ? '#D94E67' : 'grey'}" (click)="AddComment()"/>
   </div>
+  <div *ngIf="!currentUser"><a routerLink="/registration">Войдите</a>, чтобы оставить отзыв</div>
   <div *ngIf="comments.length != 0" class="comment">
     <div class="row" *ngFor="let com of comments">
       <div class="col-sm-8">
