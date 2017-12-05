@@ -17,7 +17,7 @@ export class RegistrationComponent {
   email: string;
   userService: UserService;
   router: Router;
-  constructor(userService: UserService, router: Router){
+  constructor(userService: UserService, router: Router, private _location: Location){
     this.userService = userService;
     this.router = router;
   }
@@ -25,15 +25,15 @@ export class RegistrationComponent {
     let user = new User(this.username, this.password, this.email);
     this.userService.addUser(user);
     this.userService.setCurrentUser(user);
-    window.location.assign( "");
+    this._location.back();
   }
   SignIn():void{
     let currentUser = this.userService.getUserByUserName(this.username);
     this.userService.setCurrentUser(currentUser);
     if(currentUser){
-      window.location.assign( "");
+      this._location.back();
     }else {
-      alert("User doesn't exist in the system");
+      alert("Пользователь не найден");
     }
   }
 }

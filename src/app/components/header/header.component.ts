@@ -1,4 +1,4 @@
-import {Component} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import { Router} from "@angular/router";
 
 import { UserService } from "../../services/user.service";
@@ -11,7 +11,7 @@ import {User} from "../../models/user";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent{
+export class HeaderComponent implements OnInit{
   value: string;
   router: Router;
   userService: UserService;
@@ -20,7 +20,16 @@ export class HeaderComponent{
   constructor(router: Router, userService: UserService, public placesService: PlacesService){
      this.router = router;
      this.userService = userService;
-   this.currentUser = this.userService.getCurrentUser();
+
+  }
+  ngOnInit(){
+  this.userService.getCurrentUser().subscribe(u => {
+    debugger
+    this.currentUser = u
+  }, error2 => {
+    debugger
+    console.log(error2)
+  });
   }
    Registration(): void {
     this.router.navigateByUrl('/registration');

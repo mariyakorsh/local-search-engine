@@ -11,6 +11,7 @@ import {Subject} from "rxjs/Subject";
 })
 export class CommentComponent implements OnInit{
   ngOnInit(): void {
+    this.userService.getCurrentUser().subscribe(u => this.currentUser = u, error2 => console.log(error2));
     let arr = <Comment[]> JSON.parse(localStorage.getItem(this.placeName));
     if(arr){
       this.comments = arr;
@@ -21,7 +22,6 @@ export class CommentComponent implements OnInit{
   currentUser: User;
   comments: Comment[] = [];
   constructor(public userService: UserService) {
-    this.currentUser = userService.getCurrentUser();
   }
   AddComment(): void{
     this.comments.unshift(new Comment(this.currentUser.username, new Date(), this.text));
