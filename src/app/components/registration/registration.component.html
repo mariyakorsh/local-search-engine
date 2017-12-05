@@ -11,11 +11,11 @@
         </div>
         <div class="group">
           <input  type="password" class="input" data-type="password" placeholder="Password"
-                  name="password" minlength="6" required [(ngModel)]="password">
+                  name="password" minlength="6" #pas="ngModel" required [(ngModel)]="password">
         </div>
         <div class="group">
-          <input [disabled]="!form.valid" type="button" class="button" value="Sign In"
-                 (click)="SignIn()" [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
+          <input [disabled]="!myName.valid || !pas.valid" type="button" class="button" value="Sign In"
+                 (click)="SignIn()" [ngStyle]="{'background': myName.valid && pas.valid  ? '#D94E67' : 'grey'}">
         </div>
       </div>
       <div class="sign-up-htm">
@@ -40,7 +40,7 @@
                  required email name="email" [(ngModel)]="email" ngModel/>
         </div>
         <div class="group">
-          <input type="button" class="button" value="Sign Up" (click)="SignUp()"
+          <input type="button" class="button" value="Sign Up" (click)="SignUp()" [disabled]="!form.valid"
                  [ngStyle]="{'background': form.valid ? '#D94E67' : 'grey'}">
         </div>
       </div>

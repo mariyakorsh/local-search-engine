@@ -1,7 +1,8 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, DoCheck, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
 import {PlacesService} from "../../services/places.service";
 import {Phone, Place} from "../../models/place";
+import {Subject} from "rxjs/Subject";
 
 declare var ymaps: any;
 
@@ -25,9 +26,10 @@ interface MapsEventListener {
   styleUrls: ['./place-list.component.css'],
   providers: [PlacesService]
 })
-export class PlaceListComponent implements OnInit {
+export class PlaceListComponent implements OnInit{
   private place: string;
-  public places: Place[];
+  public places: Place[] = [];
+  public subject: Subject<Place[]> = new Subject();
 
   options: any = {
     center: [59.9386300, 30.3141300],
@@ -38,6 +40,11 @@ export class PlaceListComponent implements OnInit {
   @ViewChild('yamaps') el: ElementRef;
 
   constructor( public activatedRout: ActivatedRoute, public placesService: PlacesService) {
+    let arr = <Place[]> JSON.parse(localStorage.getItem('places'));
+    if(arr){
+      this.places = arr;
+    }
+    this.subject.subscribe(a => this.places = a);
   }
 
   ngOnInit() {
@@ -54,19 +61,20 @@ export class PlaceListComponent implements OnInit {
               preset: 'islands#circleDotIcon',
             }));
         });
-        localStorage.setItem('places', JSON.stringify(value.features));
+        let pls = value.features.map(item => {
+          return  new Place(
+            item.properties.CompanyMetaData.name,
+            item.properties.CompanyMetaData.address,
+            item.properties.CompanyMetaData.Hours,
+            <Phone[]> item.properties.CompanyMetaData.Phones
+          )
+        });
+        this.subject.next(pls);
+        localStorage.setItem('places', JSON.stringify(pls));
       }, error => {
         console.log(error);
       });
       const map = new ymaps.Map(this.el.nativeElement, this.options);
-    });
-    this.places = JSON.parse(localStorage.getItem('places')).map( item => {
-      return  new Place(
-        item.properties.CompanyMetaData.name,
-        item.properties.CompanyMetaData.address,
-        item.properties.CompanyMetaData.Hours,
-        <Phone[]> item.properties.CompanyMetaData.Phones
-      )
     });
   }
 

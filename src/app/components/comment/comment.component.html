@@ -1,0 +1,30 @@
+<div class="container">
+  <div *ngIf="currentUser" class="input">
+    <textarea placeholder="Оставьте отзыв" #value="ngModel" [(ngModel)]="text"></textarea>
+  <input type="submit" value="Add" [disabled]="text == ''" [ngStyle]="{'background': text  ? '#D94E67' : 'grey'}" (click)="AddComment()"/>
+  </div>
+  <div *ngIf="comments.length != 0" class="comment">
+    <div class="row" *ngFor="let com of comments">
+      <div class="col-sm-8">
+        <div class="panel panel-white post panel-shadow">
+          <div class="post-heading">
+            <div class="pull-left image">
+              <img style="border-radius: 50%" src="http://bootdey.com/img/Content/user_1.jpg" class="img-circle avatar" alt="user profile image">
+            </div>
+            <div class="pull-left meta">
+              <div class="title h5">
+                <a href="#"><b>{{com.username}}</b></a>
+                made a post.
+              </div>
+              <h6 class="text-muted time">{{com.time | date}}</h6>
+            </div>
+          </div>
+          <div class="post-description">
+            <p>{{com.text}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

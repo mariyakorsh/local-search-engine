@@ -15,6 +15,7 @@ import { PlaceListComponent } from './components/place-list/place-list.component
 import { PlaceComponent } from './components/place/place.component';
 import { HttpClientModule } from "@angular/common/http";
 import {PlacesService} from "./services/places.service";
+import { CommentComponent } from './components/comment/comment.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {PlacesService} from "./services/places.service";
     RegistrationComponent,
     ProfileComponent,
     PlaceListComponent,
-    PlaceComponent
+    PlaceComponent,
+    CommentComponent
   ],
   imports: [
     BrowserModule,

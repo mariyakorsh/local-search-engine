@@ -5,7 +5,7 @@
       <h3>{{pl.name}}</h3>
       <p>{{pl.address}}</p>
       <p>{{pl?.hours?.text}}</p>
-      <p *ngFor="let phone of pl.phones">{{phone.formatted}}, {{phone.info}}</p>
+      <p *ngFor="let phone of pl.phones">{{phone.formatted}}<span *ngIf="phone.info">{{', ' + phone.info}}</span></p>
     </div>
   </div>
 </div>
