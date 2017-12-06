@@ -28,9 +28,7 @@ interface MapsEventListener {
 })
 export class PlaceListComponent implements OnInit{
   private place: string;
-  public places: Place[] = [];
-  public subject: Subject<Place[]> = new Subject();
-
+  public places: Place[];
   options: any = {
     center: [59.9386300, 30.3141300],
     zoom: 10,
@@ -40,11 +38,6 @@ export class PlaceListComponent implements OnInit{
   @ViewChild('yamaps') el: ElementRef;
 
   constructor( public activatedRout: ActivatedRoute, public placesService: PlacesService) {
-    let arr = <Place[]> JSON.parse(localStorage.getItem('places'));
-    if(arr){
-      this.places = arr;
-    }
-    this.subject.subscribe(a => this.places = a);
   }
 
   ngOnInit() {
@@ -69,13 +62,15 @@ export class PlaceListComponent implements OnInit{
             <Phone[]> item.properties.CompanyMetaData.Phones
           )
         });
-        this.subject.next(pls);
         localStorage.setItem('places', JSON.stringify(pls));
       }, error => {
         console.log(error);
       });
       const map = new ymaps.Map(this.el.nativeElement, this.options);
     });
+  }
+  getPlaces(){
+    this.places = <Place[]> JSON.parse(localStorage.getItem('places'));
   }
 
 }

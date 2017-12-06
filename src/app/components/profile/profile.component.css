@@ -8,3 +8,6 @@ button{
   border: 0 none;
   border-radius: 5px;
 }
+.avatar{
+  width: 200px;
+}

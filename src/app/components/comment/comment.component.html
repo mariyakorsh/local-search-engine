@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngIf="currentUser" class="input">
     <textarea placeholder="Оставьте отзыв" #value="ngModel" [(ngModel)]="text"></textarea>
-  <input type="submit" value="Add" [disabled]="text == ''" [ngStyle]="{'background': text  ? '#D94E67' : 'grey'}" (click)="AddComment()"/>
+  <input type="submit" value="Add" [disabled]="!text" [ngStyle]="{'background': text  ? '#D94E67' : 'grey'}" (click)="AddComment()"/>
   </div>
   <div *ngIf="!currentUser"><a routerLink="/registration">Войдите</a>, чтобы оставить отзыв</div>
   <div *ngIf="comments.length != 0" class="comment">
@@ -14,7 +14,7 @@
             </div>
             <div class="pull-left meta">
               <div class="title h5">
-                <a href="#"><b>{{com.username}}</b></a>
+                <span><b>{{com.username}}</b></span>
                 made a post.
               </div>
               <h6 class="text-muted time">{{com.time | date}}</h6>

@@ -4,18 +4,18 @@
     <div class="input-group">
     <span id="city_box">
       <i class="material-icons">&#xE0C8;</i>
-      <input #city (keyup)="Search(city.value)" class="us-city" autocomplete="OFF" placeholder="Введите город" type="text">
+      <span class="us-city">Санкт-Петербург</span>
     </span>
       <div class="auto-comp">
         <input [(ngModel)]="value" class="form-control" placeholder="Что искать?(ресторан, кинотеатр)" type="text">
-        <button type="button" [routerLink]="['places', value]" routerLinkActive="active"><i class="material-icons">&#xE8B6;</i></button>
+        <button type="submit" [routerLink]="['places', value]" routerLinkActive="active"><i class="material-icons pointer">&#xE8B6;</i></button>
       </div>
     </div>
   </div>
   <div class="registration">
-    <span routerLink="/profile" *ngIf="currentUser">{{currentUser.username}}</span>
-    <a *ngIf="currentUser" class="material-icons" (click)="LogOut()">&#xE890;</a>
-    <a *ngIf="!currentUser" class="material-icons" (click)="Registration()">&#xE890;</a>
+    <span class="pointer" routerLink="/profile" *ngIf="currentUser">{{currentUser.username}}</span>
+    <a *ngIf="currentUser" class="material-icons pointer" (click)="LogOut()">&#xE890;</a>
+    <a *ngIf="!currentUser" class="material-icons pointer" (click)="Registration()">&#xE890;</a>
   </div>
 </div>
 

@@ -1,5 +1,7 @@
 <div #yamaps style="height: 550px; width: 700px"></div>
-<div class="places">
+<div>
+<button *ngIf="places == null" (click)="getPlaces()">Вывести список мест</button>
+<div *ngIf="places" class="places">
   <div class="place" *ngFor="let pl of this.places">
     <div [routerLink]="['/place', pl.name]" routerLinkActive="active">
       <h3>{{pl.name}}</h3>
@@ -8,5 +10,6 @@
       <p *ngFor="let phone of pl.phones">{{phone.formatted}}<span *ngIf="phone.info">{{', ' + phone.info}}</span></p>
     </div>
   </div>
+</div>
 </div>
 
